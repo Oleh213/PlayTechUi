@@ -1,0 +1,30 @@
+<dx-data-grid
+  [dataSource]="employees"
+  [columns]="[
+    { dataField: 'id', caption: 'ID' },
+    { dataField: 'name', caption: 'Name' },
+    { dataField: 'salary', caption: 'Salary', format: { type: 'currency' } },
+    { dataField: 'department.name', caption: 'Department' },
+    { dataField: 'manager.name', caption: 'Manager' }
+  ]"
+  [paging]="{ pageSize: 10 }"
+  [pager]="{ showPageSizeSelector: true, allowedPageSizes: [5, 10, 20] }"
+  [sorting]="{ mode: 'multiple' }"
+  (onRowClick)="onRowClick($event)"
+  [searchPanel]="{ visible: true }">
+</dx-data-grid>
+
+<dx-button text="Show addition tasks" (click)="isAdditionalTaskModal = true" stylingMode="contained"></dx-button>
+
+<app-edit-employee
+  *ngIf="selectedEmployee"
+  [employee]="selectedEmployee"
+  [employees]="employees"
+  [departments]="departments"
+></app-edit-employee>
+
+
+<app-additional-task
+  *ngIf="isAdditionalTaskModal"
+  (close)="isAdditionalTaskModal = false"
+></app-additional-task>

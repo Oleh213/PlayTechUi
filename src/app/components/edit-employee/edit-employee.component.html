@@ -1,0 +1,37 @@
+<div class="container" *ngIf="employee">
+  <div class="data">
+    <label class="label" for="name">Name:</label>
+    <dx-text-box id="name" [(ngModel)]="employee.name"></dx-text-box>
+  </div>
+  <div class="data">
+    <label class="label" for="salary">Salary:</label>
+    <dx-text-box id="salary" [(ngModel)]="employee.salary"></dx-text-box>
+  </div>
+  <div class="data">
+    <label class="label" for="manager">Manger:</label>
+    <div *ngIf="isShowManagerError()" class="error-message">Manger is wrong</div>
+    <dx-select-box
+      displayExpr="name"
+      valueExpr="id"
+      id="manager"
+      [searchEnabled]="true"
+      [(value)]="employee.manager.id"
+      [dataSource]="employees">
+    </dx-select-box>
+  </div>
+  <div class="data">
+    <label class="label" for="department">Department:</label>
+    <dx-select-box
+      displayExpr="name"
+      valueExpr="id"
+      id="department"
+      [searchEnabled]="true"
+      [(value)]="employee.department.id"
+      [dataSource]="departments">
+    </dx-select-box>
+  </div>
+  <dx-button text="Save" (click)="updateEmployee()" stylingMode="contained"></dx-button>
+  <dx-button text="Cancel" (click)="employee = undefined" stylingMode="outlined" style="margin-left: 10px;"></dx-button>
+</div>
+
+<div class="backdrop" *ngIf="employee" (click)="employee = undefined"></div>

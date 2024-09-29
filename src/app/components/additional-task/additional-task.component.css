@@ -1,0 +1,32 @@
+.container{
+  z-index: 4;
+  width: 700px;
+  height: fit-content;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  max-height: calc(100% - 200px);
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  background: #FFF;
+  box-shadow: 3px 3px 16.9px 2px rgba(161, 161, 161, 0.25);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  overflow-y: scroll;
+}
+
+.backdrop{
+  width: 100%;
+  opacity: 0.6;
+  background: #4C4C4C;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+}

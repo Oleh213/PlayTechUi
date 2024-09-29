@@ -1,0 +1,34 @@
+<div class="container">
+  <span class="task">
+    <i>1. Show all employees whose salary is higher than their manager's salary:</i>
+    <span class="result">
+      <span *ngFor="let employee of employeesWithHigherSalaryThenManagers">{{employee.name}} | {{' '}}</span>
+    </span>
+  </span>
+  <span class="task">
+    <i>2. Show the employee with the highest salary in each department</i>
+    <span class="result">
+      <span *ngFor="let employee of employeesWithHighestSalaryInDepartments">
+        {{employee.department.name}}: {{employee.name}}({{employee.salary}}$) |
+      </span>
+    </span>
+  </span>
+  <span class="task">
+    <i>3. Show departments with more than 50 employees: </i>
+    <span class="result">
+      <span *ngFor="let department of departmentsWithMoreThan50Employees">{{department.name}} | {{' '}}</span>
+    </span>
+  </span>
+  <div class="task">
+    <i>4. Show all employees whose manager is in a different department: </i>
+    <span class="result">
+      <span *ngFor="let employee of employeesWithDifferentDepartmentManager">{{employee.name}} | {{' '}}</span>
+    </span>
+  </div>
+  <span class="task">
+    <i>5. Show the department with the highest sum of salaries of all its employees:  </i>
+    <span class="result">{{departmentWithHighestSalary?.name}}</span>
+  </span>
+</div>
+
+<div class="backdrop" (click)="close.emit()"></div>
